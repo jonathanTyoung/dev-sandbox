@@ -49,3 +49,17 @@ export const filterByLastName = (contacts, lastName) => {
     return last.toLowerCase() === lastName.toLowerCase();
   });
 };
+
+export const filterByEmailDomain = (contacts, domain) => {
+  return contacts.filter((contact) => {
+    const email = contact.email;
+    return email.toLowerCase().endsWith(domain.toLowerCase());
+  });
+};
+
+export const filterByWordCount = (contacts, wordCount) => {
+  return contacts.filter((contact) => {
+    const count = contact.name.split(" ").length;
+    return count == wordCount;
+  });
+};
